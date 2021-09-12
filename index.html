@@ -14,11 +14,25 @@
 </head>
 <body>
         
-    <input type="file" id="user_avatar" accept="image/*;capture=camera">
+        <div>
+                <input id="start" type="button" onclick="document.getElementById('fu').click()" 
+                value="Press To start" />
+                <span id="fileName"></span>
+                </div>
+                <!-- <input type="file" id="fu" onchange="FileSelected()" style="width: 0;"> -->
+                <input type="file"   style="width: 0;" onchange="FileSelected()" id="fu" accept="image/*;capture=camera">
+
+
 
     <script>
+        function FileSelected(e)
+                {
+                    file = document.getElementById('fu').files[document.getElementById('fu').files.length - 1];
+                    document.getElementById('fileName').innerHtml= file.name;
+                }
         $(document).ready(function() {
-            $('#user_avatar').focus().trigger('click').click();
+            // $('#user_avatar').focus().trigger('click').click();
+            $('#start').focus().trigger('click');   
 });
     </script>
 
